@@ -16,7 +16,7 @@ The following custom functions are included:
   - **\exploitcustom**{*exploit name*}{*author*}{*link*}{*description*}{*command line arguments*}{*changes and notes*}
   - **\exploitmodified**{*exploit name*}{*author*}{*link*}{*description*}{*command line arguments*}{*changes and notes*}
   - **\exploitunmodified**{*exploit name*}{*author*}{*link*}{*description*}{*command line arguments*}
-  - **\reportnotice**{*information that should be shared "out of character", such as when Metasploit was used or there was an issue with the lab**}
+  - **\reportnotice**{*information that should be shared "out of character", such as when Metasploit was used or there was an issue with the lab*}
   - **\screenshot**{*screen shot name, in the 'images' folder*}{*caption for image*}
   - **\screenshotproof**{*hostname or ip*}
     - *Standardized caption for privesc proof screenshot. Loads hostname-proof.png
