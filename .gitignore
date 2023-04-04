@@ -1,0 +1,24 @@
+# Latex temporary files
+*.aux
+*.log
+*.toc
+*.dvi
+
+# PDF output
+*.pdf
+
+# SyncTeX
+*.synctex.gz
+
+# LaTeX Beamer
+*.snm
+*.vrb
+*.nav
+*.out
+
+# BibTeX
+*.bbl
+*.blg
+
+# image folders
+**/images/*
