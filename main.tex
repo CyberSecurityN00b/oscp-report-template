@@ -1,0 +1,67 @@
+\documentclass[a4paper, 10pt oneside]{article}
+\renewcommand{\familydefault}{\sfdefault}
+%-------------------------------------------------------------------------------
+%------------------------ Set the variables for the Mainpage here --------------
+%-------------------------------------------------------------------------------
+\newcommand{\name}{YOUR NAME HERE} %TODO: CHANGE THIS
+\newcommand{\email}{YOUR EMAIL HERE} %TODO: CHANGE THIS
+\newcommand{\osid}{OS-xxxxx} %TODO: CHANGE THIS
+
+%-------------------------------------------------------------------------------
+%------------------------ Include the list of used packages --------------------
+%------------------------ Include the custom functions -------------------------
+%-------------------------------------------------------------------------------
+\input{packages.tex}
+\input{customfunctions.tex}
+
+%-------------------------------------------------------------------------------
+%------------------------ Create title page ------------------------------------
+%-------------------------------------------------------------------------------
+\title{{\textbf{\Huge Offensive Security}}\\ Penetration Test Report for\\OSCP Exam}
+\author{\vspace{3cm}\\{\LARGE \name}\\[1em]\email\\[1em]OSID: \osid}
+\date{\vspace{7cm}\today}
+
+
+\begin{document}
+%-------------------------------------------------------------------------------
+%------------------------ Print title page -------------------------------------
+%-------------------------------------------------------------------------------
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+\setcounter{tocdepth}{2}
+\tableofcontents
+\pagebreak
+
+\input{./executivesummary.tex}\pagebreak
+\input{./methodologies.tex}\pagebreak
+
+%-------------------------------------------------------------------------------
+%------------------------ Here are the hosts -----------------------------------
+%-------------------------------------------------------------------------------
+\pagebreak
+\section{Exploited Hosts}
+%TODO: Add a new file/line for each host
+%\input{./lab_hosts/1.1.1.1.tex}\pagebreak
+%\input{./lab_hosts/2.2.2.2.tex}\pagebreak
+\input{./lab_hosts/hostwriteup.template.tex}\pagebreak
+
+\pagebreak
+\appendix
+%-------------------------------------------------------------------------------
+%------------------------ Here are the exploits --------------------------------
+%-------------------------------------------------------------------------------
+\section{Remote Exploits}
+%TODO: Add a new file/line for each exploit
+%\input{./exploits/exploitdb-11111.tex}\pagebreak
+%\input{./exploits/exploitdb-22222.tex}\pagebreak
+\input{./exploits/exploitwriteup.template.tex}\pagebreak
+
+\section{Privilege Escalation}
+%TODO: Add a new file/line for each exploit
+%\input{./exploits/exploitdb-33333.tex}\pagebreak
+%\input{./exploits/exploitdb-44444.tex}\pagebreak
+\input{./exploits/exploitwriteup.template.tex}\pagebreak
+
+
+\end{document}

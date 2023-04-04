@@ -1,0 +1,30 @@
+% !TeX spellcheck = en_US
+\graphicspath{{./lab_hosts/images/}}
+
+\reportnewhost{HOSTNAME}{IP}{OS}{OS VERSION}
+\reporttcpports{
+	\portservice{22}{SERVICE BANNER}
+	\portservicevuln{2222}{VULNERABLE SERVICE BANNER}
+}
+
+\reportexploitsummarysection
+\reportexploitsummary{CVE-2023-XXXXX}{\severityhigh}{DESCRIPTION}{IMPACT}{FIX ACTION}{EXPLOIT LABEL REFERENCE SET AT TOP OF EXPLOIT.TEX}
+
+\reportpreexploitation
+<<<PRE-EXPLOITATION WRITE-UP>>>
+
+
+\reportexploiting
+exploitation write-up
+
+%\screenshot{screenshot.png}{<<<caption>>>}
+
+%\screenshotproof{proof.png}
+
+%\reportprivesc
+%<<<PRIVESC WRITEUP>>>
+\reportprivescnotneeded
+
+%\reportcleanup
+%<<<CLEANUP ACTIONS>>>
+\reportcleanupnotneeded

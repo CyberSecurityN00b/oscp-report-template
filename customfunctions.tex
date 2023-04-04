@@ -1,0 +1,323 @@
+% !TeX spellcheck = en_US
+% -- Exercise questions --
+\newcommand{\exerciseq}[1] {
+	\textbf{#1}
+}
+
+% -- Screenshots/figures --
+\newcommand{\screenshot}[2] {
+	\begin{figure}[H]
+			\centering
+			\shadowbox{\includegraphics[width=.95\textwidth]{#1}}
+			\captionsetup{justification=centering}
+			\caption{#2}
+			\label{fig:#1}
+	\end{figure}
+}
+
+% -- Modified Exploits --
+\newcommand{\exploitmodified}[6] {
+	% #1 - Exploit Name
+	% #2 - Exploit Author
+	% #3 - Exploit Link
+	% #4 - Exploit Description
+	% #5 - Command Line
+	% #6 - Changes and Notes
+	\begin{tcolorbox}[breakable]
+		\begin{center}
+			\textbf{Modified Exploit Used}
+		\end{center}
+		\begin{tabularx}{\textwidth}{| l X |}
+					\hline
+					\textbf{Exploit} & #1 \\
+					\textbf{Author} & #2 \\
+					\textbf{Source} & \url{#3} \\
+					\hline
+				\end{tabularx}
+				\newline
+				\begin{tabularx}{\textwidth}{|| X ||}
+					\hline
+			\begin{minipage}[t]{.95\textwidth}
+				\textbf{Description:} \hfill\break #4
+			\end{minipage} \\
+			\hline
+			\ifx&#5&
+			\else
+				\begin{minipage}[t]{.95\textwidth}
+					\textbf{Commands/Todos:} #5
+				\end{minipage} \\
+				\hline
+			\fi
+		\end{tabularx}
+		\newline\newline
+		\textbf{Explanation of Changes and Additional Notes:} #6
+	\end{tcolorbox}
+	\begin{center}
+		\emph{Note: Lines highlighted in yellow below mark changes from the original source. For lines that are broken across multiple lines due to word-wrap, only the first line is highlighted.}
+	\end{center}
+}
+
+% -- Unmodified Exploits --
+\newcommand{\exploitunmodified}[5] {
+	% #1 - Exploit Name
+	% #2 - Exploit Author
+	% #3 - Exploit Link
+	% #4 - Exploit Description
+	% #5 - Command Line
+	% #6 - Changes and Notes
+	\begin{tcolorbox}[breakable]
+		\begin{center}
+			\textbf{Unmodified Exploit Used}
+		\end{center}
+		\begin{tabularx}{\textwidth}{| l X |}
+			\hline
+			\textbf{Exploit} & #1 \\
+			\textbf{Author} & #2 \\
+			\textbf{Source} & \url{#3} \\
+			\hline
+		\end{tabularx}
+		\newline
+		\begin{tabularx}{\textwidth}{|| X ||}
+			\hline
+			\begin{minipage}[t]{.95\textwidth}
+				\textbf{Description:} \hfill\break #4
+			\end{minipage} \\
+			\hline
+			\ifx&#5&
+			\else
+				\begin{minipage}[t]{.95\textwidth}
+					\textbf{Commands/Todos:} #5
+				\end{minipage} \\
+				\hline
+			\fi
+		\end{tabularx}
+	\end{tcolorbox}
+}
+
+% -- "custom" exploits
+\newcommand{\exploitcustom}[6] {
+	% #1 - Exploit Name
+	% #2 - Exploit Author
+	% #3 - Exploit Link
+	% #4 - Exploit Description
+	% #5 - Command Line
+	% #6 - Changes and Notes
+	\begin{tcolorbox}[breakable]
+		\begin{center}
+			\textbf{Custom Exploit Used}
+		\end{center}
+		\begin{tabularx}{\textwidth}{| l X |}
+					\hline
+					\textbf{Exploit} & #1 \\
+					\textbf{Reference} & \url{#3} \\
+					\hline
+				\end{tabularx}
+				\newline
+				\begin{tabularx}{\textwidth}{|| X ||}
+					\hline
+			\begin{minipage}[t]{.95\textwidth}
+				\textbf{Description:} \hfill\break #4
+			\end{minipage} \\
+			\hline
+			\ifx&#5&
+			\else
+				\begin{minipage}[t]{.95\textwidth}
+					\textbf{Commands/Todos:} #5
+				\end{minipage} \\
+				\hline
+			\fi
+		\end{tabularx}
+	\end{tcolorbox}
+	\begin{center}
+		\emph{Note: Custom exploits are not necessarily original exploits. They include exploits which \osid{} has ported from one language to another or significantly modified from the original.}
+	\end{center}
+}
+
+% -- Highlight Line --
+\newcommand{\highlightline}{
+	\makebox[0pt][l]{\color{yellow}\rule[-1ex]{.99\linewidth}{3ex}}
+}
+
+% -- Report New Host --
+\newcommand{\reportnewhost}[4]{
+	% #1 - Hostname
+	% #2 - IP Address
+	% #3 - Operating System Name
+	% #4 - Operating System Version
+	
+	\subsection{#1}
+	
+	\begin{tcolorbox}[title=Host Information,sharp corners=uphill]
+		\begin{tabularx}{\textwidth}{| l | X |}
+			\hline
+			\textbf{Hostname} & #1 \\
+			\hline
+			\textbf{IP Address} & #2 \\
+			\hline
+			\ifx&#4&
+				\textbf{Operating System} & #3 \\
+			\else
+				\multirow{2}{*}{\textbf{Operating System}} & #3 \\
+				& \textit{#4} \\
+			\fi
+			\hline
+		\end{tabularx}
+	\end{tcolorbox}
+
+	\subsubsection{Enumerated Ports}
+	\begin{center}
+	\small{\textit{The port(s) involved in acquiring remote access to the machine are highlighted in red.}}
+	\end{center}
+}
+
+% -- TCP Ports
+\newcommand{\reporttcpports}[1]{
+	\begin{tcolorbox}[title=Enumerated TCP Ports,sharp corners=uphill]
+		\begin{tabularx}{\textwidth}{| r | X |}
+			\hline
+			\textbf{Port} & \textbf{Service Information} \\
+			\hline
+			#1
+			\hline
+		\end{tabularx}
+	\end{tcolorbox}
+}
+
+% -- UDP Ports
+\newcommand{\reportudpports}[1]{
+	\begin{tcolorbox}[title=Enumerated UDP Ports,sharp corners=uphill]
+		\begin{tabularx}{\textwidth}{| r | X |}
+			\hline
+			\textbf{Port} & \textbf{Service Information} \\
+			\hline
+			#1
+			\hline
+		\end{tabularx}
+	\end{tcolorbox}
+}
+
+\newcommand{\portservicevuln}[2]{
+	\rowcolor{red!25} #1 & #2 \\
+	\hline
+}
+
+\newcommand{\portservice}[2]{
+	#1 & #2 \\
+	\hline
+}
+
+\newcommand{\reportexploitsummarysection}{
+	\subsubsection{Exploit Summary}
+	\begin{center}
+		\emph{Only the exploit(s) used to gain remote access to this host are summarized in this section.\newline{}This should not be considered a complete coverage of this host's vulnerabilities.\newline{}\textbf{Note:} Remediations are strictly recommendations to address the specific issue noted.}
+	\end{center}
+}
+
+% -- Report Remote Access --
+\newcommand{\reportexploitsummary}[6]{
+	% #1 - Basic ID or Name
+	% #2 - Severity
+	% #3 - Vulnerability Description
+	% #4 - Vulnerability Impact
+	% #5 - Vulnerability Fix
+	% #6 - Exploit Reference
+	\begin{tcolorbox}[title=#1 Summary,sharp corners=uphill]
+		\begin{tabularx}{\textwidth}{| r | X |}
+			\hline
+			\textbf{Severity} & #2 \\
+			\hline
+			\textbf{Description} & #3 \\
+			\hline
+			\textbf{Impact} & #4 \\
+			\hline
+			\textbf{Remediation} & #5 \\
+			\hline
+		\end{tabularx}
+		\ifx&#6&
+		\else
+			\newline
+			\begin{center}
+				Please reference appendix \vref{exploit:#6} for detailed information regarding the exploit used for this finding.
+			\end{center}
+		\fi
+	\end{tcolorbox}
+}
+
+\newcommand{\reportpreexploitation}{
+	\subsubsection{Service Enumeration}
+}
+
+\newcommand{\reportexploiting}{
+	\subsubsection{Exploitation}
+}
+
+% -- Report Privilege Escalation --
+\newcommand{\reportprivesc}{
+	\subsubsection{Privilege Escalation}
+}
+
+\newcommand{\reportprivescnotneeded}{
+	\subsubsection{Privilege Escalation}
+	No additional steps were needed to gain elevated privileges.
+}
+
+\newcommand{\reportinvestigation}{
+	\subsubsection{Host Investigation}
+}
+
+\newcommand{\reportinvestigationnotneeded}{
+	\subsubsection{Host Investigation}
+	\osid{} did not identify any files or information which warrant inclusion here.
+}
+
+\newcommand{\reportcleanup}{
+	\subsubsection{Cleanup Actions Needed}
+}
+
+\newcommand{\reportcleanupnotneeded}{
+	\subsubsection{Cleanup Actions Needed}
+	All necessary cleanup actions were performed by \osid{}. Offensive Security does not need to take any additional steps.
+}
+
+\newcommand{\reportrecommendations}{
+	\subsubsection{Recommendations}
+	Recommendations to mitigate the specific vulnerabilities or mis-configurations employed:
+}
+
+% -- Screenshot of Proof --
+\newcommand{\screenshotproof}[1]{
+	% #1 - IP Address
+	\screenshot{#1-proof.png}{Proof of successful exploitation with elevated privileges.}
+}
+\newcommand{\screenshotprooflocal}[1]{
+	% #1 - IP Address
+	\screenshot{#1-localproof.png}{Proof of successful exploitation with non-elevated privileges.}
+}
+
+%-- Severity Identifiers --
+\newcommand{\severitycritical}{
+	\textbf{\textcolor{red}{Critical}}
+}
+\newcommand{\severityhigh}{
+	\textbf{\textcolor{orange}{High}}
+}
+\newcommand{\severitymedium}{
+	\textbf{\textcolor{yellow}{Medium}}
+}
+
+\newcommand{\reportnotice}[1]{
+	\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+	  colback=blue!5!white,colframe=blue!75!black,colbacktitle=red!80!black,
+	  title=N O T I C E,fonttitle=\bfseries,
+	  boxed title style={size=small,colframe=red!50!black}]
+	  #1
+	\end{tcolorbox}
+}
+
+\newcommand{\reportdatahost}[1]{
+	\texttt{#1}
+}
+
+\newcommand{\reportdatatool}[1]{
+	\texttt{#1}
+}
